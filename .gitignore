@@ -1,6 +1,9 @@
 # Local .terraform directories
 **/.terraform/*
-
+google_credentials.json
+id_rsa.pub
+.terraform.lock.hcl
+terraform.tfvars
 # .tfstate files
 *.tfstate
 *.tfstate.*

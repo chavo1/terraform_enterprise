@@ -1,0 +1,10 @@
+*.rli
+*.airgap
+*.pem
+*.tar.gz
+
+.terraform/
+*.tfstate*
+*auto.tfvars
+/packer
+/tfe/.terraform*

@@ -2,11 +2,11 @@
 resource "aws_instance" "tfe" {
   ami = var.tfe-ami
   #  iam_instance_profile = "${aws_iam_instance_profile.test_ptfe.name}"
-  instance_type          = "t2.xlarge"
-  iam_instance_profile   = aws_iam_instance_profile.chavo-profile.name
-  subnet_id              = aws_subnet.tfe-vpc-tfe-subnet.id
+  instance_type               = "t2.xlarge"
+  iam_instance_profile        = aws_iam_instance_profile.chavo-profile.name
+  subnet_id                   = aws_subnet.tfe-vpc-tfe-subnet.id
   associate_public_ip_address = false
-  vpc_security_group_ids = [aws_security_group.ec2_sg.id]
+  vpc_security_group_ids      = [aws_security_group.ec2_sg.id]
   depends_on = [
     aws_s3_bucket.tfe-bucket,
     aws_db_instance.tfe-db,
@@ -20,7 +20,7 @@ public_ip=$(curl -sSf 'http://169.254.169.254/latest/meta-data/public-ipv4')
 [ -z "$public_ip" ] && public_ip=$${private_ip}
 ./install.sh airgap no-proxy private-address=$${private_ip} public-address=$${public_ip}
 EOF
-  key_name               = aws_key_pair.chavo-tfe.id
+  key_name  = aws_key_pair.chavo-tfe.id
   tags = {
     Name = "chavo-tfe"
   }

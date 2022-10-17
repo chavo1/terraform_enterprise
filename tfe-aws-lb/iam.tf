@@ -46,7 +46,7 @@ EOF
 }
 resource "aws_vpc_endpoint" "s3" {
   vpc_id       = aws_vpc.tfe-vpc.id
-  service_name = "com.amazonaws.us-east-1.s3"
+  service_name = "com.amazonaws.${var.aws_region}.s3"
 }
 resource "aws_vpc_endpoint_route_table_association" "tfe" {
   route_table_id  = aws_route_table.public.id

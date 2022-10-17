@@ -1,3 +1,5 @@
+# Private
+
 # Create security group for VPC that allows ssh, http, https and tfe dashboard port 8800 for requests/replys inbound traffic 
 resource "aws_security_group" "ec2_sg" {
   name        = "ec2_sg"
@@ -55,14 +57,14 @@ resource "aws_security_group" "tfe-db-sg" {
     from_port   = 5432
     to_port     = 5432
     protocol    = "tcp"
-    cidr_blocks = ["10.0.0.0/24"]
+    cidr_blocks = ["172.31.32.0/24"]
   }
 
   egress {
     from_port   = 5432
     to_port     = 5432
     protocol    = "tcp"
-    cidr_blocks = ["10.0.0.0/24"]
+    cidr_blocks = ["172.31.32.0/24"]
   }
   tags = {
     Name = "TFE-chavo"

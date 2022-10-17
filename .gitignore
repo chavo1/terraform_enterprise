@@ -7,4 +7,5 @@
 *.tfstate*
 *auto.tfvars
 /packer
-/tfe/.terraform*
+/tfe-aws-lb/.terraform*
+/tfe-aws-lb/terraform.tfvars
